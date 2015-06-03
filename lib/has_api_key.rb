@@ -1,0 +1,2 @@
+module HasApiKey
+end
