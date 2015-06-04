@@ -6,6 +6,22 @@ HasApiKey allows you to add 1 line to any of your models and enable API key stor
 
 # Usage
 
+## Add to your Gemfile
+
+```ruby
+  gem 'has_api_key', github: 'buttercloud/has_api_key'
+```
+
+Run `bundle install`.
+
+Run the migration generator to generate the required API key table.
+
+```ruby
+  rails g has_api_key:migration
+  rake db:migrate
+```
+
+
 ## Samples
 Add the `has_api_key` declaration to the model that you want to associate API keys with:
 
