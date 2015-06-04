@@ -11,7 +11,8 @@ class CreateApiKeys < ActiveRecord::Migration
     end
 
     add_index :api_keys, [:authenticatable_id, :authenticatable_type]
-    add_index :api_keys, [:token]
+    add_index :api_keys, :token
+    add_index :api_keys, :token, unique: true
   end
   # Drop table
   def self.down
