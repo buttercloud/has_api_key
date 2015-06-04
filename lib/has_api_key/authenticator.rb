@@ -20,13 +20,16 @@ module HasApiKey
 
     protected
     def token_valid?(token)
-      auth_record = if defined?(api_resource)
-        ApiKey.find_by(authenticatable: api_resource, api_key: token).first
+      auth_record = ApiKey.where(token: token).first
+
+      valid = if auth_record.present? 
+        auth_record.token == token
       else
-        ApiKey.where(token: token).first
+        false 
       end
 
-      auth_record.blank? ? false : auth_record.token == token
+      @api_loaded_resource = auth_record.authenticatable if valid
+      valid
     end
   end
 end
