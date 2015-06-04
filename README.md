@@ -44,6 +44,7 @@ curl -IH "Authorization: Token token=b67a8e54b11c411e5a4a35x734c80a11z" http://l
 * Allow API token param name to be customized
 * Add the ability to generate new keys per resource and maintain key history
 * Allow keys to be reset on a specific resource via a `reset!` helper method
+* Allow application-wide API key (not resource based)
 
 Built with <3 by buttercloud.
 
