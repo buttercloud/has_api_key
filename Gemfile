@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'pry-rails'
 
 # Declare your gem's dependencies in has_api_key.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
