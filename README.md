@@ -37,6 +37,14 @@ API tokens have to be passed in as a `token` param for the `Authenticator` to ch
 curl -IH "Authorization: Token token=b67a8e54b11c411e5a4a35x734c80a11z" http://localhost:3000/people
 ```
 
+## TODO
+
+* Tests for migration generator
+* Allow API resource instance variable name to be customized
+* Allow API token param name to be customized
+* Add the ability to generate new keys per resource and maintain key history
+* Allow keys to be reset on a specific resource via a `reset!` helper method
+
 Built with <3 by buttercloud.
 
 
