@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = HasApiKey::VERSION
   s.authors     = ["Feras Hirzalla"]
   s.email       = ["hirzalla@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of HasApiKey."
-  s.description = "TODO: Description of HasApiKey."
+  s.homepage    = "http://www.buttercloud.com"
+  s.summary     = "Easily add resoure-based API authentication to your rails application"
+  s.description = "Add API key support to your application."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]

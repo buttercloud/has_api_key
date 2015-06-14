@@ -114,3 +114,6 @@ DEPENDENCIES
   has_api_key!
   pry-rails
   sqlite3
+
+BUNDLED WITH
+   1.10.3

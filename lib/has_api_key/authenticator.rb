@@ -2,11 +2,28 @@ module HasApiKey
   module Authenticator
     extend ActiveSupport::Concern
 
-    included do
-      before_action :authenticate_resource
+    def self.included(base)
+      base.send :extend, ClassMethods
+    end
+
+
+    module ClassMethods
+      attr_accessor :unauthorized_if
+      def authenticate_api_keys(options={})
+        if options[:unauthorized_if].present?
+          @unauthorized_if = options[:unauthorized_if]
+        end
+        
+        #TODO: Implement :only and :except options here
+        before_action :authenticate_resource
+      end
     end
 
     def authenticate_resource
+      if self.class.unauthorized_if.present? && send(self.class.unauthorized_if) == true
+        head(:unauthorized) && return
+      end
+
       if params[:token].present?
         head :unauthorized unless token_valid?(params[:token])
       else
@@ -33,3 +50,5 @@ module HasApiKey
     end
   end
 end
+
+ActionController::Base.send :include, HasApiKey::Authenticator

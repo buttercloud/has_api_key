@@ -50,4 +50,10 @@ class AuthenticatorTest < ActionController::TestCase
     get(:index)
     assert_nil assigns(:api_loaded_resource)
   end
+
+  def test_with_proc_option
+    p = Person.create!
+    get(:index, { "token" => p.api_key.token, "fail_now" => "yes" } ) # proc is already specified with a hard coded string in our PeopleController
+    assert_response 401
+  end
 end
